@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
@@ -19,7 +20,7 @@ public class Main extends AbstractMain {
 		running = true;
 		this.defaultInit("The Dylan Deck");
 		input = new InputHandler(this);
-		spread = new Spread("One Card");
+		spread = new Spread(Spread.spreadType.THE_HAT);
 	}
 
 	@Override
@@ -28,7 +29,11 @@ public class Main extends AbstractMain {
 			close();
 		}
 		if(input.isMouseDown(MouseEvent.BUTTON1)) {
-			
+			Point mouse = input.getMousePositionOnScreen();
+			if(spread.click(mouse.x, mouse.y)){
+				draw();
+			}
+			input.artificialMouseReleased(MouseEvent.BUTTON1);
 		}
 	}
 
