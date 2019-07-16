@@ -20,3 +20,59 @@
 19=The Sun=New Morning=Things are looking good. Life is going to be sunny. Go for what you want, you'll get it!
 20=Judgement=Don't Think Twice=What started off good may have gone sour in the past but you are aware of that. You have wisdom now and know that the road is still worth travelling even if the journey's not always smooth.
 21=The World=Forever Young=The best card to draw if you listen to the upbeat track. Slightly depressing if you go for the dirgy version. Either way you are loved and respected and, by God, people like you! You cannot fail. And even if you do, there's no success like failure...
+swords=1=I Shall Be Released=With optimism and fortitude a great struggle will be overcome.
+swords=2=One Too Many Mornings=You can keep battering away at your goal but it won't be achieved and you'll never be satisfied. Try accounting. And if that fails - teach.
+swords=3=Man of Constant Sorrow=There are those to whom all good things will come. You aren't one of them.
+swords=4=If You See Her Say Hello=The time for action has past, you've lost what you wanted. You know it's too late. Regrets, you've got a few.
+swords=5=Boots of Spanish Leather=You've been wronged and it hurts. Bide your time and smile, their own folly will help in your revenge.
+swords=6=Tonight I'll be Staying Here With You=Stuff needs doing, goals need to be achieved, but take a rest, kick your shoes off and relax. You won't die, it's not poison.
+swords=7=I Don't Believe You (Acts Like We Never Have Met)=Things are changing around you. What you thought was concrete has shifted into sand. There are no certainties so don't take things for granted.
+swords=8=Knockin' on Heavens Door=Things aren't working out. You've chosen the wrong path. Time for a change. Do it, you're not dead you're just asleep.
+swords=9=Dead Man Dead Man=You know your faults. You know your vices. You know you need to change. But will you? Can you?
+swords=10=The Lonesome Death of Hattie Carroll=Life just isn't fair. Forget God, forget Karma, the good die young and the bastards always win. Something may be due to you, you may have earned it, you may deserve it, but you ain't gonna get it.
+swords=Kn=Drifters Escape=Ingenuity and charm. All may seem to be going wrong but you have a gift for turning things right in the end.
+swords=J=I am a Lonesome Hobo=Achievement by agile and wily methods. You will get results but not by conventional methods.
+swords=Q=To Ramona=A sharing of sympathy. Tender moments, intimate conversation in candlelight and quietude.
+swords=K=John Wesley Harding=A 'masculine' man, powerful and formidable. He could be good for you, temporarily, but beware of crossing him, he has his own sense of justice.
+wands=1=All I Really Want To Do=People think you have ulterior motives. They may treat you with suspicion or feel you are untrustworthy. You need to convince otherwise. Perhaps your personality needs an overhaul.
+wands=2=Joey=Think before you blink. You've bitten off more than you can chew and what you thought was simple is complex. You are out of your depth.
+wands=3=Jokerman=You are not aware of what's going on. You think you do, but you don't. You're an idiot babe.
+wands=4=Lay Down Your Weary Tune=Take a rest. Let your mind breathe for a while. Creativity will come if you relax.
+wands=5=Nothing Was Delivered=Beware of who you trust, they are not trustworthy. All you've worked for may come to nothing.
+wands=6=Clothes Line Saga=Family and domesticity. Necessary for a while. Kick back and enjoy just mooching with your loved ones.
+wands=7=Idiot Wind=Watchout for poisonous people, they will not so much let you down as kick you down. Fight back, you will win in the end.
+wands=8=Tears of Rage=Treachery surrounds you. Disappointment and frustration. All you thought was good will get smacked in your face.
+wands=9=Dear Landlord=Your expectation of disappoinment gives you strength. A friend's actions will sadden rather than anger you.
+wands=10=Ballad of Frankie Lee & Judas Priest=The thing you trusted is about to turn on you. Be it a person, situation or belief. Be prepared.
+wands=Kn=Changing of the Guards=So much happening. Chaos. Fun. Excitement. It's all mixed up confusion. Don't worry things will settle and a picture will form.
+wands=J=Where Are You Tonight? (Journey Thru Dark Heat)=People are relying on you too much. You don't want to let them down but their need is sometimes suffocating. You need more freedom and solitude.
+wands=Q=Hazel=You are going for the unattainable. Stop it, you're wasting your time. Alternatively keep trying but try harder.
+wands=K=Father of Night=An authoritative figure (possibly older) is there to guide you. He has a lot of wisdom to impart but beware you don't blindly follow. Be aware of what's good for you.
+cups=1=If Not For You=Togetherness, partnership. Reveling in others company, particularly one special other. Life is good when life is shared.
+cups=2=Isis=Drop the hip stance and realise you're not the only card in the deck. A perfect partner is waiting for you to catch up, so take the sun out of your eyes or wear shades (but not indoors!)
+cups=3=Saved=A time for optimism. A sense of security and protection. Energy and renewed clarity.
+cups=4=True Love Tends to Forget=You've done something wrong. Admit it and just apologise for God's sake!
+cups=5=I Pity The Poor Immigrant=Stop feeling sorry for yourself. Your pomposity and hypocrisy is tedious.
+cups=6=Girl From The North Country=An event appreciated in retrospect. Regret. Someone you loved and lost but his/her wisdom reverberates in your memory. You can't go back but you can remember and learn.
+cups=7=Rainy Day Women #12&35=Laugh off your troubles with fun, friends and frivolity for a while - they will return so why not?
+cups=8=Gates Of Eden=A spiritual need to see what is real and what is not. Others may think for you but think for yourself and your prospects are brighter and more satisfying
+cups=9=Absolutely Sweet Marie=Optimism misplaced. You are being taken for a ride but you are enjoying the journey and are ever hopeful of a happy outcome.
+cups=10=All Along The Watchtower=A time of abundance. Much happening. Life is good - for the moment.
+cups=Kn=Man in the Long Black Coat=A stranger or strange event causes temptation, adversity and possibly loss. Beware people who look good fashion-wise.
+cups=J=I Dreamed I Saw St. Augustine=A quest for a more spiritual way of life. You must search for something deeper and more soulful.
+cups=Q=Sara=A near goddess (or so you think). A woman who puts the F in feminine. Wisdom and self belief oozes without effort. Artistry is at her fingertips.
+cups=K=Handy Dandy=A flaky kind of guy, charming and artistic. A person who thinks and lives individually. Not always honest but sets his own rules for honesty.
+coins=1=Never Say Goodbye=Sometimes the simple things in life are best. And sometimes your greatest asset is staring you in the face. Count your blessings. Beauty surrounds you.
+coins=2=All the Tired Horses=You are driving yourself and others too hard. Slow down. Yes you have an itch but too much scratching only results in blood.
+coins=3=Trust Yourself=You have been let down, things have fallen apart. Strengthen your resolve and follow your intuition. You have feelings, use them.
+coins=4=Can You Please Crawl Out Your Window?=It seems everything is designed to annoy and irritate you. People piss you off, stuff gets in your way. You can't move for crap.
+coins=5=Trouble=All roads lead to a dead end. Failure. A need to rebuild, rethink, start again.
+coins=6=Buckets of Rain=A time of plenty. All is going good and you have enough to share. Even the bad times can't phase you.
+coins=7=Lily, Rosemary & the Jack of Hearts=Use charm and ingenuity. Keep your lips sealed and your cards close to your chest.
+coins=8=Gonna Change My Way of Thinking=Learn to be honest. You need to know the truth, mostly about yourself. Eliminate hypocrisy and pretense.
+coins=9=Slow Train=An unforeseen event is going to change your life. Maybe for good, maybe bad. You have no way of knowing and no way of planning for it. Expect disruption.
+coins=10=Wedding Song=Contentment. Security in love and home surroundings. The spiritual is more important than the material.
+coins=Kn=Queen Jane Approximately=Trying to do what you're supposed to won't work. Be like others but know that it's only a hobby. The way for you is your own path.
+coins=J=Gotta Serve Somebody=Face it, you don't know everything. Some people's wisdom is greater than your own so drop the pomposity and learn humility.
+coins=Q=Sad Eyed Lady of the Lowlands=An ideal state of grace and knowledge. You're not sure if you can live up to it or even if you deserve to try. If this is not you then there is a goddess watching over you.
+coins=K=Senor (Tales of Yankee Power)=An older authority could help and guide you. A wily customer, not all together trustworthy (it could be your own inner demons). Be prepared for more confusion.

@@ -3,12 +3,16 @@ package deck;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
+
+import handlers.ResourceHandler;
 
 public class Card {
 
 	private String number, title, description, name;
 	private boolean turned = false, selected = false;
 	private int width, height;
+	private Image border = ResourceHandler.getImage("twist_border"), back = ResourceHandler.getImage("back_twist");
 
 	public Card(String number, String name, String title, String description, int width, int height) {
 		this.setTitle(title);
@@ -56,15 +60,31 @@ public class Card {
 			g.setColor(Color.BLACK);
 			Font font = new Font("", Font.BOLD, width / 18);
 			g.setFont(font);
-			g.drawString(number, x + (7*width/8), y + height / 12);
+			g.drawImage(border, x, y, width, height, null);
+			g.drawString(number, x + (7*width/8) - g.getFontMetrics().stringWidth(number), y + height / 12);
 			g.drawString(number, x + width / 12, y + height - height / 15);
 			g.drawString(name, x + width / 12, y + height / 12);
-			g.drawString(name, x + (7*width/13), y + height - height / 15);
-			g.drawString(title, x + width / 6, y + height / 3);
+			g.drawString(name, x + (7*width/8) - g.getFontMetrics().stringWidth(name), y + height - height / 15);
+			//g.drawString(title, x + width / 7, y + height / 3);
+			
+			String[] titleParts = title.split(" ");
+			String temp = titleParts[0];
+			for(int i = 1; i < titleParts.length; i++){
+				if(g.getFontMetrics().stringWidth(temp) < 4 * width / 8){
+					temp = temp + " " + titleParts[i];
+				}else{
+					temp = temp + " " + titleParts[i];
+					g.drawString(temp, x + width / 7, y + height / 3 + (i * 3));
+					temp = "";
+				}
+			}
+			g.drawString(temp, x + width/7, y + height/3 + ((titleParts.length + 2) * 3));
+			
 			String[] descParts = description.split(" ");
-			String temp = " " + descParts[0];
+			temp = " " + descParts[0];
+			g.setColor(Color.WHITE);
 			for(int i = 1; i < descParts.length; i++){
-				if(g.getFontMetrics().stringWidth(temp) < 4 * width / 5){
+				if(g.getFontMetrics().stringWidth(temp) < 4 * width / 6){
 					temp = temp + " " + descParts[i];
 				}else{
 					temp = temp + " " + descParts[i];
@@ -73,6 +93,8 @@ public class Card {
 				}
 			}
 			g.drawString(temp, x, y + height + ((descParts.length + 2) * 3));
+		}else{
+			g.drawImage(back, x, y, width, height, null);
 		}
 	}
 
