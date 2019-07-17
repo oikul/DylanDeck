@@ -19,12 +19,12 @@ import handlers.SoundHandler;
 public class Spread {
 
 	public static enum spreadType {
-		ONE_CARD, THREE_CARD, THE_HAT
+		ONE_CARD, THREE_CARD, THE_HAT, CELTIC_CROSS
 	}
 
 	private Card deck[], selected[];
 	private Point positions[];
-	private int width = 256, height = 320;
+	private int width = 200, height = 260;
 	private Dimension screenDims = Toolkit.getDefaultToolkit().getScreenSize();
 	private Random random = new Random();
 	private float shuffleTime = 0, maxTime = 50;
@@ -32,7 +32,7 @@ public class Spread {
 	private Image border = ResourceHandler.getImage("twist_border"), back = ResourceHandler.getImage("back_twist");
 	private SoundHandler shuffle =  new SoundHandler("shuffle.wav");
 	private spreadType type;
-	private Rectangle backButtonRect;
+	private Rectangle deckRect = new Rectangle(screenDims.width / 50, screenDims.height / 50, width, height), backButtonRect;
 
 	public Spread(spreadType type) {
 		shuffle.play();
@@ -102,7 +102,66 @@ public class Spread {
 			positions[4] = new Point(3 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 3);
 			positions[5] = new Point(4 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 3);
 			break;
-		default:
+		case CELTIC_CROSS:
+			selected = new Card[10];
+			selected[0] = deck[random.nextInt(deck.length)];
+			selected[0].setSelected(true);
+			selected[1] = deck[random.nextInt(deck.length)];
+			while (selected[1].isSelected()) {
+				selected[1] = deck[random.nextInt(deck.length)];
+			}
+			selected[1].setSelected(true);
+			selected[2] = deck[random.nextInt(deck.length)];
+			while (selected[2].isSelected()) {
+				selected[2] = deck[random.nextInt(deck.length)];
+			}
+			selected[2].setSelected(true);
+			selected[3] = deck[random.nextInt(deck.length)];
+			while (selected[3].isSelected()) {
+				selected[3] = deck[random.nextInt(deck.length)];
+			}
+			selected[3].setSelected(true);
+			selected[4] = deck[random.nextInt(deck.length)];
+			while (selected[4].isSelected()) {
+				selected[4] = deck[random.nextInt(deck.length)];
+			}
+			selected[4].setSelected(true);
+			selected[5] = deck[random.nextInt(deck.length)];
+			while (selected[5].isSelected()) {
+				selected[5] = deck[random.nextInt(deck.length)];
+			}
+			selected[5].setSelected(true);
+			selected[6] = deck[random.nextInt(deck.length)];
+			while (selected[6].isSelected()) {
+				selected[6] = deck[random.nextInt(deck.length)];
+			}
+			selected[6].setSelected(true);
+			selected[7] = deck[random.nextInt(deck.length)];
+			while (selected[7].isSelected()) {
+				selected[7] = deck[random.nextInt(deck.length)];
+			}
+			selected[7].setSelected(true);
+			selected[8] = deck[random.nextInt(deck.length)];
+			while (selected[8].isSelected()) {
+				selected[8] = deck[random.nextInt(deck.length)];
+			}
+			selected[8].setSelected(true);
+			selected[9] = deck[random.nextInt(deck.length)];
+			while (selected[9].isSelected()) {
+				selected[9] = deck[random.nextInt(deck.length)];
+			}
+			selected[9].setSelected(true);
+			positions = new Point[10];
+			positions[0] = new Point(17 * screenDims.width / 20 - 10 * width / 2, screenDims.height / 40 + 8 * height / 6);
+			positions[1] = new Point(17 * screenDims.width / 20 - 8 * width / 2, screenDims.height / 40 + 9 * height / 6);
+			positions[2] = new Point(17 * screenDims.width / 20 - 9 * width / 4, screenDims.height / 40 + 7 * height / 6);
+			positions[3] = new Point(17 * screenDims.width / 20 - 9 * width / 2, screenDims.height / 40 + 27 * height / 10);
+			positions[4] = new Point(17 * screenDims.width / 20 - 27 * width / 4, screenDims.height / 40 + 7 * height / 6);
+			positions[5] = new Point(17 * screenDims.width / 20 - 9 * width / 2, screenDims.height / 40);
+			positions[6] = new Point(17 * screenDims.width / 20 - 11 * width / 10, screenDims.height / 40 + 27 * height / 10);
+			positions[7] = new Point(17 * screenDims.width / 20, screenDims.height / 40 + 18 * height / 10);
+			positions[8] = new Point(17 * screenDims.width / 20 - 11 * width / 10, screenDims.height / 40 + 9 * height / 10);
+			positions[9] = new Point(17 * screenDims.width / 20, screenDims.height / 40);
 			break;
 		}
 		backButtonRect = new Rectangle(screenDims.width / 40, 17 * screenDims.height / 20, screenDims.width / 10, screenDims.height / 10);
@@ -135,7 +194,7 @@ public class Spread {
 	}
 
 	public int click(int x, int y) {
-		if(new Rectangle(screenDims.width / 12, screenDims.height / 12, width, height).contains(x, y)){
+		if(deckRect.contains(x, y)){
 			deckClicked++;
 		}
 		if(backButtonRect.contains(new Point(x, y))){
@@ -188,10 +247,10 @@ public class Spread {
 				shuffleTime = 0;
 			}
 		} else {
-			g.drawImage(back, screenDims.width / 12 + 3*width/30, screenDims.height / 12 + 3* height/30, width, height, null);
-			g.drawImage(back, screenDims.width / 12 + 2*width/30, screenDims.height / 12 + 2*height/30, width, height, null);
-			g.drawImage(back, screenDims.width / 12 + width/30, screenDims.height / 12 + height/30, width, height, null);
-			g.drawImage(back, screenDims.width / 12, screenDims.height / 12, width, height, null);
+			g.drawImage(back, deckRect.x + 3*width/30, deckRect.y + 3* height/30, deckRect.width, deckRect.height, null);
+			g.drawImage(back, deckRect.x + 2*width/30, deckRect.y + 2*height/30, deckRect.width, deckRect.height, null);
+			g.drawImage(back, deckRect.x + width/30, deckRect.y + height/30, deckRect.width, deckRect.height, null);
+			g.drawImage(back, deckRect.x, deckRect.y, deckRect.width, deckRect.height, null);
 			g.setColor(Color.WHITE);
 			Font font = new Font("", Font.BOLD, width / 10);
 			g.setFont(font);

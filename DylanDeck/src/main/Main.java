@@ -56,6 +56,9 @@ public class Main extends AbstractMain {
 				}else if(selection == 3){
 					spread = new Spread(spreadType.THE_HAT);
 					spreadSelected = true;
+				}else if(selection == 4){
+					spread = new Spread(spreadType.CELTIC_CROSS);
+					spreadSelected = true;
 				}else{
 					//do nothing
 				}

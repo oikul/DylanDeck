@@ -15,23 +15,26 @@ public class MainMenu {
 
 	private Image border = ResourceHandler.getImage("twist_border");
 	private String title = "The Dylan Tarot Deck", oneCard = "ONE CARD", threeCard = "THREE CARD",
-			theHat = "THE DYLAN HAT",
+			theHat = "THE DYLAN HAT", celticCross = "CELTIC CROSS",
 			blurb = "The Dylan Deck illuminates the images of conventional tarot with interpretations of Bob Dylan songs by Claire Dowie. Each tarot card has its own Bob Dylan song as an aid to divination.";
-	private Point[] positions = new Point[5];
+	private Point[] positions = new Point[6];
 	private Dimension screenDims = InputHandler.screenSize;
-	private Rectangle oneCardBox, threeCardBox, theHatBox;
+	private Rectangle oneCardBox, threeCardBox, theHatBox, celticCrossBox;
 
 	public MainMenu() {
 		positions[0] = new Point(screenDims.width / 6, screenDims.height / 6);
 		positions[1] = new Point(screenDims.width / 5, screenDims.height / 3);
-		positions[2] = new Point(screenDims.width / 4, 3 * screenDims.height / 4);
-		positions[3] = new Point(2 * screenDims.width / 4, 3 * screenDims.height / 4);
-		positions[4] = new Point(3 * screenDims.width / 4, 3 * screenDims.height / 4);
+		positions[2] = new Point(screenDims.width / 5, 3 * screenDims.height / 4);
+		positions[3] = new Point(2 * screenDims.width / 5, 3 * screenDims.height / 4);
+		positions[4] = new Point(3 * screenDims.width / 5, 3 * screenDims.height / 4);
+		positions[5] = new Point(4 * screenDims.width / 5, 3 * screenDims.height / 4);
 		oneCardBox = new Rectangle(positions[2].x - screenDims.width / 12, positions[2].y - screenDims.height / 16,
 				screenDims.width / 6, screenDims.height / 8);
 		threeCardBox = new Rectangle(positions[3].x - screenDims.width / 12, positions[3].y - screenDims.height / 16,
 				screenDims.width / 6, screenDims.height / 8);
 		theHatBox = new Rectangle(positions[4].x - screenDims.width / 12, positions[4].y - screenDims.height / 16,
+				screenDims.width / 6, screenDims.height / 8);
+		celticCrossBox = new Rectangle(positions[5].x - screenDims.width / 12, positions[5].y - screenDims.height / 16,
 				screenDims.width / 6, screenDims.height / 8);
 	}
 
@@ -43,6 +46,8 @@ public class MainMenu {
 			return 2;
 		}else if(theHatBox.contains(point)){
 			return 3;
+		}else if(celticCrossBox.contains(point)){
+			return 4;
 		}else{
 			return 0;
 		}
@@ -77,9 +82,11 @@ public class MainMenu {
 		g.drawImage(border, oneCardBox.x, oneCardBox.y, oneCardBox.width, oneCardBox.height, null);
 		g.drawImage(border, threeCardBox.x, threeCardBox.y, threeCardBox.width, threeCardBox.height, null);
 		g.drawImage(border, theHatBox.x, theHatBox.y, theHatBox.width, theHatBox.height, null);
+		g.drawImage(border, celticCrossBox.x, celticCrossBox.y, celticCrossBox.width, celticCrossBox.height, null);
 		g.drawString(oneCard, positions[2].x - screenDims.width / 26, positions[2].y + screenDims.height / 68);
 		g.drawString(threeCard, positions[3].x - screenDims.width / 20, positions[3].y + screenDims.height / 68);
 		g.drawString(theHat, positions[4].x - screenDims.width / 18, positions[4].y + screenDims.height / 68);
+		g.drawString(celticCross, positions[5].x - screenDims.width / 18, positions[5].y + screenDims.height / 68);
 	}
 
 }
