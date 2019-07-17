@@ -68,30 +68,34 @@ public class Card {
 			
 			String[] titleParts = title.split(" ");
 			String temp = titleParts[0];
+			int count = 1;
 			for(int i = 1; i < titleParts.length; i++){
 				if(g.getFontMetrics().stringWidth(temp) < 3 * width / 8){
 					temp = temp + " " + titleParts[i];
 				}else{
 					temp = temp + " " + titleParts[i];
-					g.drawString(temp, x + width / 7, y + height / 3 + (i * 3));
+					g.drawString(temp, x + width / 7, y + height / 3 + g.getFontMetrics().getHeight() * count);
 					temp = "";
+					count++;
 				}
 			}
-			g.drawString(temp, x + width/7, y + height/3 + ((titleParts.length + 2) * 3));
+			g.drawString(temp, x + width/7, y + height/3 + g.getFontMetrics().getHeight() * count);
 			
 			String[] descParts = description.split(" ");
 			temp = " " + descParts[0];
+			count = 1;
 			g.setColor(Color.WHITE);
 			for(int i = 1; i < descParts.length; i++){
 				if(g.getFontMetrics().stringWidth(temp) < 4 * width / 6){
 					temp = temp + " " + descParts[i];
 				}else{
 					temp = temp + " " + descParts[i];
-					g.drawString(temp, x, y + height + (i * 3));
+					g.drawString(temp, x, y + height + g.getFontMetrics().getHeight() * count);
 					temp = "";
+					count ++;
 				}
 			}
-			g.drawString(temp, x, y + height + ((descParts.length + 2) * 3));
+			g.drawString(temp, x, y + height + g.getFontMetrics().getHeight() * count);
 		}else{
 			g.drawImage(back, x, y, width, height, null);
 		}
