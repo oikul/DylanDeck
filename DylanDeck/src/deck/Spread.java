@@ -29,9 +29,10 @@ public class Spread {
 	private Random random = new Random();
 	private float shuffleTime = 0, maxTime = 50;
 	private int shuffleCount = 5, deckClicked = 0;
-	private Image back = ResourceHandler.getImage("back_twist"), background = ResourceHandler.getImage("background");
+	private Image border = ResourceHandler.getImage("twist_border"), back = ResourceHandler.getImage("back_twist");
 	private SoundHandler shuffle =  new SoundHandler("shuffle.wav");
 	private spreadType type;
+	private Rectangle backButtonRect;
 
 	public Spread(spreadType type) {
 		shuffle.play();
@@ -96,14 +97,15 @@ public class Spread {
 			positions = new Point[6];
 			positions[0] = new Point(2 * screenDims.width / 5 - width / 2, screenDims.height / 6 - height / 4);
 			positions[1] = new Point(3 * screenDims.width / 5 - width / 2, screenDims.height / 6 - height / 4);
-			positions[2] = new Point(1 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 4);
-			positions[3] = new Point(2 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 4);
-			positions[4] = new Point(3 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 4);
-			positions[5] = new Point(4 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 4);
+			positions[2] = new Point(1 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 3);
+			positions[3] = new Point(2 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 3);
+			positions[4] = new Point(3 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 3);
+			positions[5] = new Point(4 * screenDims.width / 5 - width / 2, 4 * screenDims.height / 6 - height / 3);
 			break;
 		default:
 			break;
 		}
+		backButtonRect = new Rectangle(screenDims.width / 40, 17 * screenDims.height / 20, screenDims.width / 10, screenDims.height / 10);
 	}
 
 	private void loadCards() {
@@ -132,22 +134,23 @@ public class Spread {
 		this.deck = cards;
 	}
 
-	public boolean click(int x, int y) {
+	public int click(int x, int y) {
 		if(new Rectangle(screenDims.width / 12, screenDims.height / 12, width, height).contains(x, y)){
 			deckClicked++;
+		}
+		if(backButtonRect.contains(new Point(x, y))){
+			return 1;
 		}
 		for (int i = 0; i < positions.length; i++) {
 			Rectangle bounds = new Rectangle(positions[i].x, positions[i].y, width, height);
 			if (bounds.contains(x, y)) {
 				selected[i].setTurned(true);
-				return true;
 			}
 		}
-		return false;
+		return 0;
 	}
 
 	public void draw(Graphics g) {
-		g.drawImage(background, 0, 0, screenDims.width, screenDims.height, null);
 		if (shuffleCount > 0) {
 			if (shuffleTime < maxTime) {
 				if (shuffleTime > (maxTime/2)) {
@@ -190,7 +193,7 @@ public class Spread {
 			g.drawImage(back, screenDims.width / 12 + width/30, screenDims.height / 12 + height/30, width, height, null);
 			g.drawImage(back, screenDims.width / 12, screenDims.height / 12, width, height, null);
 			g.setColor(Color.WHITE);
-			Font font = new Font("", Font.BOLD, width / 16);
+			Font font = new Font("", Font.BOLD, width / 10);
 			g.setFont(font);
 			switch(type){
 			case ONE_CARD:
@@ -202,12 +205,12 @@ public class Spread {
 				g.drawString("OUTCOME", positions[2].x + width / 20, positions[2].y - height / 20);
 				break;
 			case THE_HAT:
-				g.drawString("FEELINGS OF SELF", positions[0].x + width / 20, positions[0].y - height / 20);
-				g.drawString("DESIRES", positions[1].x + width / 20, positions[1].y - height / 20);
-				g.drawString("FEARS", positions[2].x + width / 20, positions[2].y - height / 20);
-				g.drawString("FOR YOU", positions[3].x + width / 20, positions[3].y - height / 20);
-				g.drawString("AGAINST YOU", positions[4].x + width / 20, positions[4].y - height / 20);
-				g.drawString("FUTURE", positions[5].x + width / 20, positions[5].y - height / 20);
+				g.drawString("WHAT'S IN YOUR HEAD", positions[0].x + width / 20, positions[0].y - height / 20);
+				g.drawString("HOW'D IT GET THERE", positions[1].x + width / 20, positions[1].y - height / 20);
+				g.drawString("WHY YOU ASKIN'", positions[2].x + width / 20, positions[2].y - height / 20);
+				g.drawString("HOW'S IT GONNA CHANGE?", positions[3].x + width / 20, positions[3].y - height / 20);
+				g.drawString("WHY'S IT GONNA CHANGE?", positions[4].x + width / 20, positions[4].y - height / 20);
+				g.drawString("HOW'S IT GONNA END?", positions[5].x + width / 20, positions[5].y - height / 20);
 				break;
 			default:
 				break;
@@ -217,6 +220,9 @@ public class Spread {
 					selected[i].draw(g, positions[i].x, positions[i].y);
 				}
 			}
+			g.setColor(Color.black);
+			g.drawImage(border, backButtonRect.x, backButtonRect.y, backButtonRect.width, backButtonRect.height, null);
+			g.drawString("BACK", backButtonRect.x + backButtonRect.width / 3, backButtonRect.y + 3 * backButtonRect.height / 5);
 		}
 	}
 

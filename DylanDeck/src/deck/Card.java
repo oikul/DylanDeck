@@ -65,12 +65,11 @@ public class Card {
 			g.drawString(number, x + width / 12, y + height - height / 15);
 			g.drawString(name, x + width / 12, y + height / 12);
 			g.drawString(name, x + (7*width/8) - g.getFontMetrics().stringWidth(name), y + height - height / 15);
-			//g.drawString(title, x + width / 7, y + height / 3);
 			
 			String[] titleParts = title.split(" ");
 			String temp = titleParts[0];
 			for(int i = 1; i < titleParts.length; i++){
-				if(g.getFontMetrics().stringWidth(temp) < 4 * width / 8){
+				if(g.getFontMetrics().stringWidth(temp) < 3 * width / 8){
 					temp = temp + " " + titleParts[i];
 				}else{
 					temp = temp + " " + titleParts[i];
