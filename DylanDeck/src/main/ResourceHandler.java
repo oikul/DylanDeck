@@ -4,10 +4,10 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -151,8 +151,8 @@ public class ResourceHandler {
 	
 	public static ArrayList<String> getAllTextFromFile(String path) throws FileNotFoundException{
 		ArrayList<String> text = new ArrayList<String>();
-		URL url = rl.getClass().getClassLoader().getResource("resources/" + path + ".txt");
-		Scanner scan = new Scanner(new File(url.getPath()));
+		InputStream stream = rl.getClass().getClassLoader().getResourceAsStream("resources/" + path + ".txt");
+		Scanner scan = new Scanner(stream);
 		while (scan.hasNext()) {
 		    text.add(scan.nextLine());
 		}
