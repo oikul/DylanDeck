@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import handlers.ResourceHandler;
+import main.ResourceHandler;
 
 public class Card {
 

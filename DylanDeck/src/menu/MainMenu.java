@@ -8,8 +8,8 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import handlers.InputHandler;
-import handlers.ResourceHandler;
+import main.InputHandler;
+import main.ResourceHandler;
 
 public class MainMenu {
 

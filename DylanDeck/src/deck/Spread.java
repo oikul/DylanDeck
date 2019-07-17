@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import handlers.ResourceHandler;
-import handlers.SoundHandler;
+import main.ResourceHandler;
+import main.SoundHandler;
 
 public class Spread {
 

@@ -9,10 +9,7 @@ import java.awt.event.MouseEvent;
 
 import deck.Spread;
 import deck.Spread.spreadType;
-import handlers.InputHandler;
-import handlers.ResourceHandler;
 import menu.MainMenu;
-import utils.AbstractMain;
 
 public class Main extends AbstractMain {
 
