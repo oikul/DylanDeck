@@ -7,12 +7,12 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import main.InputHandler;
 import main.ResourceHandler;
 import main.SoundHandler;
 
@@ -24,8 +24,8 @@ public class Spread {
 
 	private Card deck[], selected[];
 	private Point positions[];
-	private int width = 256, height = 320;
-	private Dimension screenDims = Toolkit.getDefaultToolkit().getScreenSize();
+	private int width, height;
+	private Dimension screenDims = InputHandler.screenSize;
 	private Random random = new Random();
 	private float shuffleTime = 0, maxTime = 50;
 	private int shuffleCount = 5, deckClicked = 0;
@@ -37,10 +37,8 @@ public class Spread {
 	public Spread(spreadType type) {
 		shuffle.play();
 		this.type = type;
-		if (type.equals(spreadType.CELTIC_CROSS)) {
-			width = 200;
-			height = 260;
-		}
+		width = screenDims.width / 8;
+		height = screenDims.height / 4;
 		loadCards();
 		switch (type) {
 		case ONE_CARD:
