@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import main.InputHandler;
 import main.ResourceHandler;
 import main.SoundHandler;
 
@@ -25,7 +24,7 @@ public class Spread {
 	private Card deck[], selected[];
 	private Point positions[];
 	private int width, height;
-	private Dimension screenDims = InputHandler.screenSize;
+	private Dimension screenDims;
 	private Random random = new Random();
 	private float shuffleTime = 0, maxTime = 50;
 	private int shuffleCount = 5, deckClicked = 0;
@@ -34,9 +33,10 @@ public class Spread {
 	private spreadType type;
 	private Rectangle deckRect, backButtonRect;
 
-	public Spread(spreadType type) {
+	public Spread(spreadType type, Dimension screenDims) {
 		shuffle.play();
 		this.type = type;
+		this.screenDims = screenDims;
 		width = screenDims.width / 8;
 		height = screenDims.height / 4;
 		loadCards();

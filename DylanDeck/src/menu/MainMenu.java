@@ -8,7 +8,6 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import main.InputHandler;
 import main.ResourceHandler;
 
 public class MainMenu {
@@ -18,10 +17,11 @@ public class MainMenu {
 			theHat = "THE DYLAN HAT", celticCross = "CELTIC CROSS",
 			blurb = "The Dylan Deck illuminates the images of conventional tarot with interpretations of Bob Dylan songs by Claire Dowie. Each tarot card has its own Bob Dylan song as an aid to divination.";
 	private Point[] positions = new Point[6];
-	private Dimension screenDims = InputHandler.screenSize;
+	private Dimension screenDims;
 	private Rectangle oneCardBox, threeCardBox, theHatBox, celticCrossBox;
 
-	public MainMenu() {
+	public MainMenu(Dimension screenDims) {
+		this.screenDims = screenDims;
 		positions[0] = new Point(screenDims.width / 6, screenDims.height / 6);
 		positions[1] = new Point(screenDims.width / 5, screenDims.height / 3);
 		positions[2] = new Point(screenDims.width / 5, 3 * screenDims.height / 4);
@@ -40,26 +40,26 @@ public class MainMenu {
 
 	public int click(int x, int y) {
 		Point point = new Point(x, y);
-		if(oneCardBox.contains(point)){
+		if (oneCardBox.contains(point)) {
 			return 1;
-		}else if(threeCardBox.contains(point)){
+		} else if (threeCardBox.contains(point)) {
 			return 2;
-		}else if(theHatBox.contains(point)){
+		} else if (theHatBox.contains(point)) {
 			return 3;
-		}else if(celticCrossBox.contains(point)){
+		} else if (celticCrossBox.contains(point)) {
 			return 4;
-		}else{
+		} else {
 			return 0;
 		}
 	}
 
 	public void draw(Graphics g) {
 		g.setColor(Color.white);
-		Font font = new Font("", Font.BOLD, 120);
+		Font font = new Font("", Font.BOLD, screenDims.width / 15);
 		g.setFont(font);
 		g.drawString(title, positions[0].x, positions[0].y);
 
-		font = new Font("", Font.ITALIC, 40);
+		font = new Font("", Font.ITALIC, screenDims.width / 50);
 		g.setFont(font);
 		String[] blurbParts = blurb.split(" ");
 		String temp = blurbParts[0];
@@ -77,7 +77,7 @@ public class MainMenu {
 		g.drawString(temp, positions[1].x, positions[1].y + g.getFontMetrics().getHeight() * count);
 
 		g.setColor(Color.BLACK);
-		font = new Font("", Font.PLAIN, 30);
+		font = new Font("", Font.PLAIN, screenDims.width / 80);
 		g.setFont(font);
 		g.drawImage(border, oneCardBox.x, oneCardBox.y, oneCardBox.width, oneCardBox.height, null);
 		g.drawImage(border, threeCardBox.x, threeCardBox.y, threeCardBox.width, threeCardBox.height, null);
