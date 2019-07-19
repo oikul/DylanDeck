@@ -215,7 +215,11 @@ public class Spread {
 			if (i < positions.length) {
 				Rectangle bounds = new Rectangle(positions[i].x, positions[i].y, width, height);
 				if (bounds.contains(x, y)) {
-					selected[i].setTurned(true);
+					if(!selected[i].isTurned()){
+						selected[i].setTurned(true);
+					}else{
+						selected[i].setClicked(selected[i].isClicked() ? false : true);
+					}
 				}
 			}
 		}

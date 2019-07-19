@@ -77,7 +77,7 @@ public class MainMenu {
 		g.drawString(temp, positions[1].x, positions[1].y + g.getFontMetrics().getHeight() * count);
 
 		g.setColor(Color.BLACK);
-		font = new Font("", Font.PLAIN, screenDims.width / 80);
+		font = new Font("", Font.BOLD, screenDims.width / 80);
 		g.setFont(font);
 		g.drawImage(border, oneCardBox.x, oneCardBox.y, oneCardBox.width, oneCardBox.height, null);
 		g.drawImage(border, threeCardBox.x, threeCardBox.y, threeCardBox.width, threeCardBox.height, null);
