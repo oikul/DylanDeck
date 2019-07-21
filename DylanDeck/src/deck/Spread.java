@@ -316,16 +316,16 @@ public class Spread {
 				break;
 			case CELTIC_CROSS:
 				g.setColor(Color.WHITE);
-				g.drawString("1", positions[0].x + width / 20, positions[0].y - height / 20);
-				g.drawString("2", positions[1].x + width / 20, positions[1].y - height / 20);
-				g.drawString("3", positions[2].x + width / 20, positions[2].y - height / 20);
-				g.drawString("4", positions[3].x + width / 20, positions[3].y - height / 20);
-				g.drawString("5", positions[4].x + width / 20, positions[4].y - height / 20);
-				g.drawString("6", positions[5].x + width / 20, positions[5].y - height / 20);
-				g.drawString("7", positions[6].x + width / 20, positions[6].y - height / 20);
-				g.drawString("8", positions[7].x + width / 20, positions[7].y - height / 20);
-				g.drawString("9", positions[8].x + width / 20, positions[8].y - height / 20);
-				g.drawString("10", positions[9].x + width / 20, positions[9].y - height / 20);
+				g.drawString("1 Heart of the matter", positions[0].x + width / 20, positions[0].y - height / 20);
+				g.drawString("2 Circumstances", positions[1].x + width / 20, positions[1].y - height / 20);
+				g.drawString("3 Root of the matter", positions[2].x + width / 20, positions[2].y - height / 20);
+				g.drawString("4 Recent developments", positions[3].x + width / 20, positions[3].y - height / 20);
+				g.drawString("5 Future developments", positions[4].x + width / 20, positions[4].y - height / 20);
+				g.drawString("6 Destiny", positions[5].x + width / 20, positions[5].y - height / 20);
+				g.drawString("7 Attitude", positions[6].x + width / 20, positions[6].y - height / 20);
+				g.drawString("8 Environment", positions[7].x + width / 20, positions[7].y - height / 20);
+				g.drawString("9 Hopes and fears", positions[8].x + width / 20, positions[8].y - height / 20);
+				g.drawString("10 Worldly outcome", positions[9].x + width / 20, positions[9].y - height / 20);
 				g.setColor(new Color(50, 50, 50, 200));
 				g.fillRect(positions[0].x, positions[0].y, width, height);
 				g.fillRect(positions[1].x, positions[1].y, width, height);

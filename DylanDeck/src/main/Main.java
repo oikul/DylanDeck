@@ -56,6 +56,8 @@ public class Main extends AbstractMain {
 				}else if(selection == 4){
 					spread = new Spread(spreadType.CELTIC_CROSS, screenDims);
 					spreadSelected = true;
+				}else if(selection == 5){
+					this.close();
 				}else{
 					//do nothing
 				}
