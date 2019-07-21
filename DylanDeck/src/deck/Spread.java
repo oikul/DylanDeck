@@ -155,22 +155,23 @@ public class Spread {
 			selected[9].setSelected(true);
 			positions = new Point[10];
 			positions[0] = new Point(17 * screenDims.width / 20 - 10 * width / 2,
-					screenDims.height / 40 + 8 * height / 6);
+					screenDims.height / 40 + 8 * height / 6 + height / 12);
 			positions[1] = new Point(17 * screenDims.width / 20 - 8 * width / 2,
-					screenDims.height / 40 + 9 * height / 6);
+					screenDims.height / 40 + 9 * height / 6 + height / 12);
 			positions[2] = new Point(17 * screenDims.width / 20 - 11 * width / 4,
-					screenDims.height / 40 + 7 * height / 6);
+					screenDims.height / 40 + 7 * height / 6 + height / 12);
 			positions[3] = new Point(17 * screenDims.width / 20 - 9 * width / 2,
-					screenDims.height / 40 + 27 * height / 10);
+					screenDims.height / 40 + 27 * height / 10 + height / 12);
 			positions[4] = new Point(17 * screenDims.width / 20 - 25 * width / 4,
-					screenDims.height / 40 + 7 * height / 6);
-			positions[5] = new Point(17 * screenDims.width / 20 - 9 * width / 2, screenDims.height / 40);
+					screenDims.height / 40 + 7 * height / 6 + height / 12);
+			positions[5] = new Point(17 * screenDims.width / 20 - 9 * width / 2, screenDims.height / 40 + height / 12);
 			positions[6] = new Point(17 * screenDims.width / 20 - 11 * width / 10,
-					screenDims.height / 40 + 27 * height / 10);
-			positions[7] = new Point(17 * screenDims.width / 20, screenDims.height / 40 + 18 * height / 10);
+					screenDims.height / 40 + 27 * height / 10 + height / 12);
+			positions[7] = new Point(17 * screenDims.width / 20,
+					screenDims.height / 40 + 18 * height / 10 + height / 12);
 			positions[8] = new Point(17 * screenDims.width / 20 - 11 * width / 10,
-					screenDims.height / 40 + 9 * height / 10);
-			positions[9] = new Point(17 * screenDims.width / 20, screenDims.height / 40);
+					screenDims.height / 40 + 9 * height / 10 + height / 12);
+			positions[9] = new Point(17 * screenDims.width / 20, screenDims.height / 40 + height / 12);
 			break;
 		}
 		deckRect = new Rectangle(screenDims.width / 50, screenDims.height / 50, width, height);
@@ -215,9 +216,9 @@ public class Spread {
 			if (i < positions.length) {
 				Rectangle bounds = new Rectangle(positions[i].x, positions[i].y, width, height);
 				if (bounds.contains(x, y)) {
-					if(!selected[i].isTurned()){
+					if (!selected[i].isTurned()) {
 						selected[i].setTurned(true);
-					}else{
+					} else {
 						selected[i].setClicked(selected[i].isClicked() ? false : true);
 					}
 				}
@@ -271,25 +272,71 @@ public class Spread {
 					deckRect.height, null);
 			g.drawImage(back, deckRect.x + width / 30, deckRect.y + height / 30, deckRect.width, deckRect.height, null);
 			g.drawImage(back, deckRect.x, deckRect.y, deckRect.width, deckRect.height, null);
-			g.setColor(Color.WHITE);
-			Font font = new Font("", Font.BOLD, width / 10);
+			g.setColor(Color.white);
+			Font font = new Font("", Font.BOLD, width / 16);
+			g.setFont(font);
+			if (deckClicked < positions.length) {
+				g.drawString("click the deck to place a card", deckRect.x + 3 * width / 30,
+						deckRect.y + 5 * height / 32 + height);
+			}
+			font = new Font("", Font.BOLD, width / 10);
 			g.setFont(font);
 			switch (type) {
 			case ONE_CARD:
+				g.setColor(Color.WHITE);
 				g.drawString("SONG OF THE DAY", positions[0].x + width / 20, positions[0].y - height / 20);
+				g.setColor(new Color(50, 50, 50, 200));
+				g.fillRect(positions[0].x, positions[0].y, width, height);
 				break;
 			case THREE_CARD:
+				g.setColor(Color.WHITE);
 				g.drawString("FOUNDATION", positions[0].x + width / 20, positions[0].y - height / 20);
 				g.drawString("CURRENT POSITION", positions[1].x + width / 20, positions[1].y - height / 20);
 				g.drawString("OUTCOME", positions[2].x + width / 20, positions[2].y - height / 20);
+				g.setColor(new Color(50, 50, 50, 200));
+				g.fillRect(positions[0].x, positions[0].y, width, height);
+				g.fillRect(positions[1].x, positions[1].y, width, height);
+				g.fillRect(positions[2].x, positions[2].y, width, height);
 				break;
 			case THE_HAT:
+				g.setColor(Color.WHITE);
 				g.drawString("WHAT'S IN YOUR HEAD", positions[0].x + width / 20, positions[0].y - height / 20);
 				g.drawString("HOW'D IT GET THERE", positions[1].x + width / 20, positions[1].y - height / 20);
 				g.drawString("WHY YOU ASKIN'", positions[2].x + width / 20, positions[2].y - height / 20);
 				g.drawString("HOW'S IT GONNA CHANGE?", positions[3].x + width / 20, positions[3].y - height / 20);
 				g.drawString("WHY'S IT GONNA CHANGE?", positions[4].x + width / 20, positions[4].y - height / 20);
 				g.drawString("HOW'S IT GONNA END?", positions[5].x + width / 20, positions[5].y - height / 20);
+				g.setColor(new Color(50, 50, 50, 200));
+				g.fillRect(positions[0].x, positions[0].y, width, height);
+				g.fillRect(positions[1].x, positions[1].y, width, height);
+				g.fillRect(positions[2].x, positions[2].y, width, height);
+				g.fillRect(positions[3].x, positions[3].y, width, height);
+				g.fillRect(positions[4].x, positions[4].y, width, height);
+				g.fillRect(positions[5].x, positions[5].y, width, height);
+				break;
+			case CELTIC_CROSS:
+				g.setColor(Color.WHITE);
+				g.drawString("1", positions[0].x + width / 20, positions[0].y - height / 20);
+				g.drawString("2", positions[1].x + width / 20, positions[1].y - height / 20);
+				g.drawString("3", positions[2].x + width / 20, positions[2].y - height / 20);
+				g.drawString("4", positions[3].x + width / 20, positions[3].y - height / 20);
+				g.drawString("5", positions[4].x + width / 20, positions[4].y - height / 20);
+				g.drawString("6", positions[5].x + width / 20, positions[5].y - height / 20);
+				g.drawString("7", positions[6].x + width / 20, positions[6].y - height / 20);
+				g.drawString("8", positions[7].x + width / 20, positions[7].y - height / 20);
+				g.drawString("9", positions[8].x + width / 20, positions[8].y - height / 20);
+				g.drawString("10", positions[9].x + width / 20, positions[9].y - height / 20);
+				g.setColor(new Color(50, 50, 50, 200));
+				g.fillRect(positions[0].x, positions[0].y, width, height);
+				g.fillRect(positions[1].x, positions[1].y, width, height);
+				g.fillRect(positions[2].x, positions[2].y, width, height);
+				g.fillRect(positions[3].x, positions[3].y, width, height);
+				g.fillRect(positions[4].x, positions[4].y, width, height);
+				g.fillRect(positions[5].x, positions[5].y, width, height);
+				g.fillRect(positions[6].x, positions[6].y, width, height);
+				g.fillRect(positions[7].x, positions[7].y, width, height);
+				g.fillRect(positions[8].x, positions[8].y, width, height);
+				g.fillRect(positions[9].x, positions[9].y, width, height);
 				break;
 			default:
 				break;

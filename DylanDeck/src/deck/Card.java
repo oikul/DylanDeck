@@ -99,9 +99,22 @@ public class Card {
 					}
 				}
 				g.drawString(" " + temp, x, y + popup.height / 3 + g.getFontMetrics().getHeight() * count);
+				g.setColor(Color.WHITE);
+				font = new Font("", Font.BOLD, width / 16);
+				g.setFont(font);
+				g.drawString("click to show card", x, y + height + g.getFontMetrics().getHeight());
+			}else{
+				g.setColor(Color.WHITE);
+				font = new Font("", Font.BOLD, width / 16);
+				g.setFont(font);
+				g.drawString("click for description", x, y + height + g.getFontMetrics().getHeight());
 			}
 		} else {
 			g.drawImage(back, x, y, width, height, null);
+			g.setColor(Color.WHITE);
+			Font font = new Font("", Font.BOLD, width / 16);
+			g.setFont(font);
+			g.drawString("click to turn over", x, y + height + g.getFontMetrics().getHeight());
 		}
 	}
 
